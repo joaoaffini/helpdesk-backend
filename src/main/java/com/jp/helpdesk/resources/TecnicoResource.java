@@ -3,6 +3,8 @@ package com.jp.helpdesk.resources;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,7 +42,7 @@ public class TecnicoResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<TecnicoDTO> create(@RequestBody TecnicoDTO dto) {
+	public ResponseEntity<TecnicoDTO> create(@RequestBody @Valid TecnicoDTO dto) {
 		
 		Tecnico obj = service.create(dto);
 		
