@@ -58,4 +58,13 @@ public class TecnicoService {
 		
 	}
 
+	public Tecnico update(Integer id, TecnicoDTO dto) {
+		dto.setId(id);
+		Tecnico tecnicoBD = this.findById(id);
+		//this.validaPorCPFEmail(dto);
+		
+		tecnicoBD = new Tecnico(dto);
+		return repository.save(tecnicoBD);
+	}
+
 }
